@@ -54,6 +54,7 @@ DB schema:
         'open': 1100,
         'close': 1700
       }
-    }
+    },
+    image: <bindata>
   }
 }
