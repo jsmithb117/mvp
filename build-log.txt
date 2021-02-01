@@ -1,13 +1,13 @@
 npm init -y
 mkdir -p src/client
 mkdir -p dist
-
 Installed webpack, babel, react and dependencies.
-
 touch ./src/index.html ./src/index.js ./src/client/App.js .babelrc webpack.config.js
-
 Populated .babelrc, webpack.config.js
-
 Populated App.js, index.html, and index.js.
-
 Added start, build, and create scripts to package.json
+
+Committed initial build
+
+Installed MongoDB 4.2.12
+Made rough sketch of db schema

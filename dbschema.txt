@@ -1,0 +1,59 @@
+Data I need:
+
+Users:
+  //username
+  //passwordhash
+  //salt
+  //displayName
+  Eliminated authentication.  Will use a hardcoded 'user1' and 'user2', password will be 'password'
+Restaurants:
+  Types:
+    Mexican
+    Burger
+    Sushi
+    Italian
+  Location:
+    All Reno
+  Price:
+    1 ($)
+    2 ($$)
+    3 ($$$)
+    4 ($$$$)
+  Times
+    Days:
+      Sunday
+        Open:
+        Close:
+      Monday
+        Open:
+        Close:
+      ...
+
+
+
+DB schema:
+{
+  'users': {
+    'user1': {
+      password: 'password'
+    },
+    'user2': {
+      password: 'password'
+    }
+  },
+  'restaurants': {
+    'name': <restaurant name>,
+    'location': 'Reno',
+    'price': <$$>,
+    'times': {
+      'monday': {
+        'open': 1300,
+        'close': 2100
+      },
+      'tuesday': {
+        'open': 1100,
+        'close': 1700
+      }
+    }
+  }
+}
