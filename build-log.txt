@@ -11,3 +11,5 @@ Committed initial build
 
 Installed MongoDB 4.2.12
 Made rough sketch of db schema
+
+MongoDB doesn't like me.  Pivoting to mysql.
