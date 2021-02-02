@@ -29,3 +29,7 @@ Changing file structure of project to incorporate a server
   schema.sql
 
 Created bare server with endpoints GET/, POST/login, POST/swipe
+
+Began populating React components.  Faked logging in in Navbar.
+
+Going to do end of day commit.  Win for today: I used hooks for the first time!
