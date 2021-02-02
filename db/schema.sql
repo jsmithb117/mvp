@@ -6,7 +6,10 @@ CREATE TABLE IF NOT EXISTS users (
   id INT NOT NULL AUTO_INCREMENT,
   user VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(255),
-  PRIMARY KEY (id)
+  code VARCHAR(4),
+  match INT
+  PRIMARY KEY (id),
+  FOREIGN KEY (match) REFERENCES restaurants(id)
 );
 
 CREATE TABLE IF NOT EXISTS restaurants (
@@ -32,6 +35,12 @@ CREATE TABLE IF NOT EXISTS restaurants (
   image VARCHAR(255),
   PRIMARY KEY (id)
 );
+
+insert into users (user, password)
+values ('user1', 'password');
+
+insert into users (user, password)
+values ('user2', 'password');
 
 insert into restaurants
 values (1, 'Casa Grande', 'Mexican', 89523, 1, 1100, 2100, 1100, 2100, 1100, 2100, 1100, 2100, 1100, 2100, 1100, 2100, 1100, 2100, './images/casaGrande.jpg');

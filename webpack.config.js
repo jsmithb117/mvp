@@ -10,7 +10,7 @@ module.exports = {
         ],
 
     },
-    entry: './src/index.js',
+    entry: './client/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.js'
@@ -18,7 +18,7 @@ module.exports = {
     mode: 'development',
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html',
+            template: 'client/index.html',
             filename: "./index.html"
         })
     ],

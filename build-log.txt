@@ -13,3 +13,19 @@ Installed MongoDB 4.2.12
 Made rough sketch of db schema
 
 MongoDB doesn't like me.  Pivoting to mysql.
+Wrote schema.sql, populated it with fake data.
+
+Changing file structure of project to incorporate a server
+/dist
+/client
+  /components
+    App.js
+  index.js
+  index.html
+/server
+  /images (these should be in the db, they're going to live here for now)
+  app.js
+/db
+  schema.sql
+
+Created bare server with endpoints GET/, POST/login, POST/swipe
