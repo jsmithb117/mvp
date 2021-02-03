@@ -33,3 +33,6 @@ Created bare server with endpoints GET/, POST/login, POST/swipe
 Began populating React components.  Faked logging in in Navbar.
 
 Going to do end of day commit.  Win for today: I used hooks for the first time!
+
+Apparently 'match' is a keyword of mysql and cannot be used as a column name.
+Changed 'match' to 'matches' and from foreign key int to varchar(255)

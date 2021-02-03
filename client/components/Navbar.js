@@ -1,7 +1,6 @@
 import React from "react";
 
 var Login = (props) => {
-  console.log('Login isLoggedIn: ', props.isLoggedIn);
   var user = props.user || 'fake user';
   if (props.isLoggedIn) {
     return (
@@ -18,7 +17,7 @@ var Login = (props) => {
             <input autoComplete="name"></input>
             <input autoComplete="password"></input>
           </label>
-          <button>Login</button>
+          <button onClick={props.login}>Login</button>
         </form>
       </div>
     )
@@ -37,7 +36,6 @@ var Code = (props) => {
   }
 }
 var Navbar = (props) => {
-  console.log('Navbar isLoggedIn: ', props.isLoggedIn);
   return (
   <div className="navbar">
     <div className="title">Chickin Tender</div>

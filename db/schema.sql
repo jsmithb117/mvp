@@ -2,15 +2,6 @@ CREATE DATABASE IF NOT EXISTS chickintender;
 
 USE chickintender;
 
-CREATE TABLE IF NOT EXISTS users (
-  id INT NOT NULL AUTO_INCREMENT,
-  user VARCHAR(255) NOT NULL UNIQUE,
-  password VARCHAR(255),
-  code VARCHAR(4),
-  match INT
-  PRIMARY KEY (id),
-  FOREIGN KEY (match) REFERENCES restaurants(id)
-);
 
 CREATE TABLE IF NOT EXISTS restaurants (
   id INT NOT NULL AUTO_INCREMENT,
@@ -34,6 +25,14 @@ CREATE TABLE IF NOT EXISTS restaurants (
   sunday_close INT,
   image VARCHAR(255),
   PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  user VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255),
+  matches VARCHAR(255),
+  code VARCHAR(4)
 );
 
 insert into users (user, password)

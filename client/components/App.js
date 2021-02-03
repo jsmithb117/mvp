@@ -6,10 +6,12 @@ var App = () => {
   const [isLoggedIn, setLogin] = useState(true);
   const [code, setCode] = useState();
   const [user, setUser] = useState();
-  console.log('App isLoggedIn: ', isLoggedIn);
   var login = (e) => {
+    debugger;
     console.log('Not really logged in');
-    console.log(e);
+    var user = e.target.previousSibling.children[0].value;
+    var password = e.target.previousSibling.children[1].value;
+
     //create login form
     //pass username, password to server with POST/login
     //on success, setLogin to true
