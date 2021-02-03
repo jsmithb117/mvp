@@ -69,10 +69,10 @@ insert into restaurants
 values (9, "Lucky Beaver", "Burger", 89523, 2, 0000, 2400, 0000, 2400, 0000, 2400, 0000, 2400, 0000, 2400, 0000, 2400, 0000, 2400, "./images/lucky.jpg");
 
 insert into restaurants
-values (10, "La Cucina", "Burger", 89523, 2, 1100, 2100, 1100, 2100, 1100, 2100, 1100, 2100, 1100, 2100, 1100, 2100, 1100, 2100, "./images/cuchina.jpg");
+values (10, "La Cucina", "Italian", 89523, 2, 1100, 2100, 1100, 2100, 1100, 2100, 1100, 2100, 1100, 2100, 1100, 2100, 1100, 2100, "./images/cuchina.jpg");
 
 insert into restaurants
-values (11, "Johnny's Ristorante Italiano", "Burger", 89523, 3, 2400, 0000, 1700, 2100, 1700, 2100, 1700, 2100, 1700, 2100, 1700, 2100, 1700, 2100, "./images/beefy.jpg");
+values (11, "Johnny's Ristorante Italiano", "Italian", 89523, 3, 2400, 0000, 1700, 2100, 1700, 2100, 1700, 2100, 1700, 2100, 1700, 2100, 1700, 2100, "./images/beefy.jpg");
 
 insert into restaurants
-values (12, "Mario's Portofino Ristorante", "Burger", 89523, 2, 1630, 2100, 1630, 2100, 1630, 2100, 1630, 2100, 1630, 2100, 1630, 2100, 1630, 2100, "./images/lucky.jpg");
+values (12, "Mario's Portofino Ristorante", "Italian", 89523, 2, 1630, 2100, 1630, 2100, 1630, 2100, 1630, 2100, 1630, 2100, 1630, 2100, 1630, 2100, "./images/lucky.jpg");

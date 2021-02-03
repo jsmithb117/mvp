@@ -1,35 +1,36 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import Navbar from "./Navbar";
+import regeneratorRuntime from "regenerator-runtime";
+import Options from "./Options";
 
 var App = () => {
-  const [isLoggedIn, setLogin] = useState(true);
+  const [isLoggedIn, setLogin] = useState(false);
   const [code, setCode] = useState();
   const [user, setUser] = useState();
+  const [restaurantData, setRestaurantData] = useState();
+
+  async function restaurantDataFetch () {
+    fetch('http://localhost:3000/restaurants')
+      .then((data) => {
+        setRestaurantData(data);
+      });
+  }
+
   var login = (e) => {
-    debugger;
     console.log('Not really logged in');
-    var user = e.target.previousSibling.children[0].value;
-    var password = e.target.previousSibling.children[1].value;
-
-    //create login form
-    //pass username, password to server with POST/login
-    //on success, setLogin to true
-    //
-
+    setLogin(true);
   };
 
   var logout = (e) => {
     console.log('Not really logged out');
-    //do fetch (/logout)
-    //on success, setLogin to false
     setLogin(false);
   };
 
   return (
     <div className="inner-app">
-      <div className="Hello">We're gonna do some Chickin stuff</div>
       <Navbar isLoggedIn={isLoggedIn} code={code} login={login} logout={logout} user={user} />
+      <Options restaurantData={restaurantData}/>
     </div>
   )
 };

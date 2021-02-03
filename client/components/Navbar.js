@@ -1,24 +1,22 @@
 import React from "react";
 
 var Login = (props) => {
-  var user = props.user || 'fake user';
+  var user = props.user || 'FAKE USER';
   if (props.isLoggedIn) {
     return (
       <div className="login-true">
         Welcome back {user}!
-        <button onClick={props.logout}>Logout</button>
+        <button onClick={props.logout} type="submit">Logout</button>
       </div>
     )
   } else {
     return (
       <div className="login-false">
-        <form>
           <label>Login:
-            <input autoComplete="name"></input>
-            <input autoComplete="password"></input>
+            <input placeholder="name"></input>
+            <input placeholder="password"></input>
           </label>
-          <button onClick={props.login}>Login</button>
-        </form>
+          <button onClick={props.login} type="submit">Login</button>
       </div>
     )
   }
@@ -40,7 +38,9 @@ var Navbar = (props) => {
   <div className="navbar">
     <div className="title">Chickin Tender</div>
     <div className="login">
+      <form>
       <Login isLoggedIn={props.isLoggedIn} login={props.login} logout={props.logout} user={props.user} />
+      </form>
     </div>
     <div className="code"><Code code={props.code}/></div>
     <div className="enter-code">
