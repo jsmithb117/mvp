@@ -47,6 +47,7 @@ app.get('/restaurants', (req, res, next) => {
       console.error(err);
     }
     res.send(data);
+    console.log('got restaurants');
   })
 })
 app.post('/login', (req, res, next) => {
