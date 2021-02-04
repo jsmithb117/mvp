@@ -43,3 +43,11 @@ For POST /login, Server returns 200 if plaintext passwords match, else returns 4
 Scratched logging in.  Couldn't get server to complete a .then block after a promise.
 
 Rendering Options.
+  Had a really tough time finding this bug...
+    <select value={selected} onChange={handleSelectChange} className="option-menu">
+      {entries.map((elem) => {
+        <OptionType option={elem[0]} optionId={elem[1]} />
+      })}
+    </select>
+  I forgot the return statement!!
+Renders OptionType now.
