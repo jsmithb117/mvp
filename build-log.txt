@@ -53,3 +53,5 @@ Rendering Options.
 Renders OptionType now.
 Renders OptionLocation now.
 Renders OptionPrice now.
+
+Worked on loggin in, code creation, and moving state around to facilitate those actions.

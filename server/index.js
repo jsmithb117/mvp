@@ -50,8 +50,22 @@ app.get('/restaurants', (req, res, next) => {
     console.log('got restaurants');
   })
 })
+
+app.get('/code', (req, res, next) => {
+  //must send username in body or params
+  console.log('code request');
+  // console.log(req);
+  //do select code from users where user = {username}
+    //if code exists, return to client
+    //else return 410(gone).  I could use 404 here, but I don't want to confuse that with any of the 1000 other reasons you'd get a 404.
+})
+
+app.post('/code', (req, res, next) => {
+
+})
 app.post('/login', (req, res, next) => {
   console.log('post/login');
+  console.log(req)
   res.sendStatus(200);
 });
 
