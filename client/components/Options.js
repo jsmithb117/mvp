@@ -10,7 +10,7 @@ var Options = (props) => {
     props.restaurantData.forEach((elem) => { //restaurantData = [{id: 1, name: 'name', type: 'Sushi', location: 89523, price: 1}...]
       if (!tempTypes[elem.type]) {
         tempTypes[elem.type] = elem.id;
-      };
+      }
     });
     setTypes(tempTypes);
   }, [props.restaurantData]);
@@ -29,7 +29,7 @@ var Options = (props) => {
         <label htmlFor="options"></label>
         <select value={selected} onChange={handleSelectChange} className="option-menu">
           {entries.map((elem) => {
-            return <OptionType option={elem[0]} optionId={elem[1]} />
+            return <OptionType option={elem[0]} key={elem[1]} />
           })}
         </select>
         <input type="submit" value="Submit"></input>

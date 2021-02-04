@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import Navbar from "./Navbar";
-import regeneratorRuntime from "regenerator-runtime";
 import Options from "./Options";
 // import Async from "react-async";
 
 var App = () => {
   const [isLoggedIn, setLogin] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [code, setCode] = useState();
+  // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState();
   const [restaurantData, setRestaurantData] = useState([]);
-  // const [restaurantDataIsCurrent, setCurrentRestaurantData] = useState(false);
 
   useEffect(() => {
     console.log('fetching restaurantData');
@@ -29,19 +29,17 @@ var App = () => {
         })
         .then((data) => {
           setRestaurantData(data);
-          // setCurrentRestaurantData(true);
           console.log('fetched restaurantData');
-          console.log(data);
         })
 
   }, [isLoggedIn])
 
-  var login = (e) => {
+  var login = () => {
     console.log('Not really logged in');
     setLogin(true);
   };
 
-  var logout = (e) => {
+  var logout = () => {
     console.log('Not really logged out');
     setLogin(false);
   };
