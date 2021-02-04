@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Navbar from "./Navbar";
 import regeneratorRuntime from "regenerator-runtime";
 import Options from "./Options";
+import Async from "react-async";
 
 var App = () => {
   const [isLoggedIn, setLogin] = useState(false);
@@ -10,12 +11,26 @@ var App = () => {
   const [user, setUser] = useState();
   const [restaurantData, setRestaurantData] = useState();
 
-  async function restaurantDataFetch () {
-    fetch('http://localhost:3000/restaurants')
+  const loadRestaurants = () => {
+    fetch("http://localhost:3000/restaurants")
       .then((data) => {
+        console.log(data);
+      })
+  };
+  <Async promiseFunction={loadRestaurants}>
+    {({data, err, isLoading}) => {
+      if (isLoading) {
+        setRestaurantData('Loading...');
+      }
+      if (err) {
+        console.error(err);
+      }
+      if (data) {
         setRestaurantData(data);
-      });
-  }
+      }
+    }}
+  </Async>
+
 
   var login = (e) => {
     console.log('Not really logged in');
