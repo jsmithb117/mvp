@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 const Buttons = (props) => {
-  var checkHandler = (event) => {
+  var checkHandler = () => {
     // debugger;
     var copy = [...props.restaurantsToSwipe];
     var body = {
@@ -32,14 +32,21 @@ const Buttons = (props) => {
       }
     })
     copy.shift();
+    // debugger;
     props.setRestaurantsToSwipe(copy);
     props.setNextRestaurant(copy[0]);
 
 
   };
   var xHandler = () => {
+    // debugger;
     console.log('clicked x');
     console.log(props.restaurantsToSwipe);
+    var temp = [...props.restaurantsToSwipe];
+    temp.shift();
+    props.setRestaurantsToSwipe(temp);
+    props.setNextRestaurant(props.restaurantsToSwipe[0]);
+
   }
 
   return (

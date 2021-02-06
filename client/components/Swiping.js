@@ -48,6 +48,7 @@ const Swiping = (props) => {
     if (restaurantsToSwipe.length > 1) {
       var tempRestaurantsToSwipe = [...restaurantsToSwipe];
       tempRestaurantsToSwipe.shift();
+      // debugger;
       setRestaurantsToSwipe(tempRestaurantsToSwipe);
       setNextRestaurant(restaurantsToSwipe[0]);
       setIsMatch(false);

@@ -27,19 +27,8 @@ var App = () => {
   const [nextRestaurant, setNextRestaurant] = useState(restaurantData[0]); //{id:1,type:'Burger'...}
 
   var setRestaurantDataToComponent = () => {
-    if (user === 'user1') {
-      debugger;
-      var emptyArray = [];
-      setRestaurantsToSwipe(emptyArray);
-      restaurantData.forEach((restaurant) => {
-        // debugger;
-        if (typeSelected === restaurant.type) {
-          var temp = [...restaurantsToSwipe];
-          setRestaurantsToSwipe([...temp, restaurant]);
-        }
-      });
-      setNextRestaurant(restaurantsToSwipe[0]);
-    }
+    setRestaurantsToSwipe(restaurantData);
+    setNextRestaurant(restaurantsToSwipe[0]);
   };
 
   useEffect(() => {
@@ -60,7 +49,7 @@ var App = () => {
         .then((data) => {
           setRestaurantData(data);
           console.log('fetched restaurantData');
-          return data;
+          // return data;
         })
         .catch((err) => {
           if(err) {

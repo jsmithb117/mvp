@@ -15,22 +15,22 @@ app.listen(port, () => {
 })
 
 
-app.use((req, res, next) => {
-  console.log('req.body before parser');
-  console.log(req.body);
-  next();
-})
+// app.use((req, res, next) => {
+//   console.log('req.body before parser');
+//   console.log(req.body);
+//   next();
+// })
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use((req, res, next) => {
-  console.log('req.body after parser');
-  console.log(req.body);
-  next();
-})
+// app.use((req, res, next) => {
+//   console.log('req.body after parser');
+//   console.log(req.body);
+//   next();
+// })
 
-app.state = {};
+// app.state = {};
 
 app.get('/', (req, res, next) => {
   console.log('get/');
@@ -59,8 +59,8 @@ app.get('/code', (req, res, next) => {
   console.log('code request');
   // console.log(req);
   //do select code from users where user = {username}
-    //if code exists, return to client
-    //else return 410(gone).  I could use 404 here, but I don't want to confuse that with any of the 1000 other reasons you'd get a 404.
+  //if code exists, return to client
+  //else return 410(gone).  I could use 404 here, but I don't want to confuse that with any of the 1000 other reasons you'd get a 404.
 })
 
 app.post('/code', (req, res, next) => {
@@ -69,7 +69,7 @@ app.post('/code', (req, res, next) => {
 app.post('/login', (req, res, next) => {
   console.log('post/login');
   // console.log(req);
-  console.log(req.body);
+  // console.log(req.body);
   connection.query(`select pword from users where username = "${req.body.username}"`, (err, response) => {
     if (req.body.password === response[0].pword) {
       console.log('Auth successful');
@@ -89,22 +89,57 @@ app.post('/swipe', (req, res, next) => {
   console.log(req.body);
 
   connection.query(`select id from users where username = "${req.body.user}";`, (err, data) => {
+    if(err) {
+      console.error(err);
+    }
     console.log('data');
     console.log(data);
+
     connection.query(`select * from matches where matches = ${req.body.restaurantId};`, (err, nextData) => {
       console.log('nextData');
       console.log(nextData);
-      var user1IsTaken = nextData ? !!nextData.user1 && nextDatauser1 !== data.id : false;
+
+      // console.log('data[0].id');
+      // console.log(data[0].id);
+      var user1IsTaken
+      // = nextData ? !!nextData.user1 && nextDatauser1 !== data.id[0] : false;
+
+      if (nextData[0]) {
+        if (nextData[0].id !== null && nextData[0].id !== data[0].id) { //user1 is taken by another user //send match
+          user1IsTaken = true;
+        } else {
+          user1IsTaken = false;
+        }
+      } else {
+        user1IsTaken = true;
+      }
+
+      //cases: (assumes 'user1')
+      //user1 is taken by user1 //do nothing
+      //user1 is taken by user2 //set to 2, send match
+      //user1 is not taken //set to 1, send nomatch
+      //nextData is null //set to 1, send nomatch
+
+
+      console.log('user1IsTaken: ', user1IsTaken);
       if (user1IsTaken) {
-        connection.query(`insert into matches (user1, matches) values (${data.id}, ${req.body.restaurantId});`, () => {
-          console.log('either no data or user1 is taken');
+        connection.query(`insert into matches (user1, matches) values (${data[0].id}, ${req.body.restaurantId});`, (err, thirdData) => {
+          if (err) {
+            console.error(err);
+          }
+          console.log('data[0].id');
+          console.log(data[0].id);
+          console.log('req.body.restaurantId');
+          console.log(req.body.restaurantId);
+          console.log('thirdData');
+          console.log(thirdData);
+          console.log('nomatch');
           res.send('nomatch');
         })
       } else {
-        connection.query(`insert into matches (user2, matches) values (${data.id}, ${req.body.restaurantId});`, () => {
-          console.log('data or user1 is not taken');
-          res.send('match');
-        })
+        console.log('match');
+        res.send('match');
+
       }
     })
   })
@@ -114,6 +149,5 @@ app.get('/jpg', (req, res, next) => {
   // console.log('get jpg params')
   // console.log(req.url);
   var image = req.url.split('?')[1];
-  console.log(image);
   res.sendFile(path.resolve(__dirname, `images/${image}.jpg`));
 });
