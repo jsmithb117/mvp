@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, {useState} from "react";
-import Code from './Code';
+import React from "react";
 
 var Login = (props) => {
   var user = props.user;
@@ -32,33 +31,13 @@ var Login = (props) => {
   }
 }
 
-// var Code = (props) => {
-//   if(props.code) {
-//     return (
-//       <div className="code-true">{props.code} Give this code to a friend!</div>
-//     )
-//   } else {
-//     return (
-//       <div className="code-false">Login to get a code or get a code from a friend.</div>
-//     )
-//   }
-// }
 var Navbar = (props) => {
-  // const [userInput, setUserInput] = useState();
-  // const [passwordInput, setPasswordInput] = useState();
-
   return (
   <div className="navbar">
-    <div className="title">Chickin Tender</div>
+    <div className="title">Chickin Tender, it&apos;s like Tinder, but for food.</div>
     <div className="login">
-      {/* <form> */}
       <Login isLoggedIn={props.isLoggedIn} login={props.login} logout={props.logout} user={props.user} setUserInput={props.setUserInput} userInput={props.userInput} passwordInput={props.passwordInput} setPasswordInput={props.setPasswordInput}/>
-      {/* </form> */}
     </div>
-    {/* <div className="code-main"><Code code={props.code} friendCode={props.friendCode}setFriendCode={props.setFriendCode} codeInput={props.codeInput} setCodeInput={props.setCodeInput}/></div>
-    <div className="enter-code">
-
-    </div> */}
   </div>
 )}
 

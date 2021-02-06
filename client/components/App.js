@@ -12,8 +12,6 @@ var App = () => {
   const [passwordInput, setPasswordInput] = useState();
   const [code, setCode] = useState('');
   const [friendCode, setFriendCode] = useState('');
-  // eslint-disable-next-line no-unused-vars
-
   const [codeInput, setCodeInput] = useState('');
   const [user, setUser] = useState('');
   const [restaurantData, setRestaurantData] = useState([]);
@@ -32,7 +30,6 @@ var App = () => {
   };
 
   useEffect(() => {
-    // console.log('fetching restaurantData');
       fetch(`${url}/restaurants`)
         .then((stream) => {
           if (!stream.ok) {
@@ -48,8 +45,6 @@ var App = () => {
         })
         .then((data) => {
           setRestaurantData(data);
-          // console.log('fetched restaurantData');
-          // return data;
         })
         .catch((err) => {
           if(err) {
@@ -63,11 +58,9 @@ var App = () => {
     setLogin(true);
     var newCode = createCode();
     setCode(newCode);
-    // console.log('Not really logged in');
   };
 
   var logout = () => {
-    // console.log('Not really logged out');
     setLogin(false);
   };
 
@@ -95,13 +88,3 @@ var App = () => {
 export default App;
 
 ReactDOM.render(<App />, document.getElementById("app"));
-
-
-// const [types, setTypes] = useState({}); //{type: id, type2: id2}
-// const [typeSelected, setTypeSelected] = useState('');
-// const [locations, setLocations] = useState([12345]); //[89523]
-// const [locationSelected, setLocationSelected] = useState('');
-// const [prices, setPrices] = useState([]); //[1, 2, 3, 4]
-// const [priceSelected, setPriceSelected] = useState();
-
-// types={types} setTypes={setTypes} typeSelected={typeSelected} setTypeSelected={setTypeSelected} locations={locations} setLocations={setLocations} locationSelected={locationSelected} prices={prices} setPrices={setPrices} priceSelected={priceSelected} setPriceSelected={setPriceSelected}

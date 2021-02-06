@@ -4,12 +4,6 @@ import OptionLocation from './OptionLocation';
 import OptionPrice from './OptionPrice';
 
 var Options = (props) => {
-  // const [types, setTypes] = useState({}); //{type: id, type2: id2}
-  // const [typeSelected, setTypeSelected] = useState('');
-  // const [locations, setLocations] = useState([12345]); //[89523]
-  // const [locationSelected, setLocationSelected] = useState('');
-  // const [prices, setPrices] = useState([]); //[1, 2, 3, 4]
-  // const [priceSelected, setPriceSelected] = useState();
 
   useEffect(() => {
     var tempTypes = props.types;
@@ -32,23 +26,19 @@ var Options = (props) => {
   }, [props.restaurantData]);
 
   var handleTypesSelectChange = (event) => {
-    console.log(event.target.value);
     props.setTypeSelected(event.target.value);
     props.setRestaurantDataToComponent();
   }
 
   var handleLocationsSelectChange = (event) => {
-    console.log(event.target.value);
     props.setLocationSelected(event.target.value);
   }
 
   var handlePriceSelectChange = (event) => {
-    console.log(event.target.value);
     props.setPriceSelected(event.target.value);
   }
 
   var typesEntries = Object.entries(props.types); //[['Mexican', 1], ['Italian', 4]...]
-
 
   if (props.isLoggedIn) {
     return (
@@ -60,7 +50,6 @@ var Options = (props) => {
           })}
         </select>
 
-        {/* <input type="submit" value="Submit"></input> */}
         <select value={props.locationSelected} onChange={handleLocationsSelectChange} className="option-location">
           {props.locations.map((location) => {
             return <OptionLocation location={location} key={location} />
@@ -72,7 +61,6 @@ var Options = (props) => {
             return <OptionPrice price={price} key={'price'.concat('-', price.toString())} />
           })}
         </select>
-
       </form>
     )
   } else {

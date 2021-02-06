@@ -1,8 +1,6 @@
 import React from "react";
 
 const Image = (props) => {
-  // console.log(props);
-  // debugger;
   if (props.isMatch) {
     return (
       <div>
@@ -10,7 +8,7 @@ const Image = (props) => {
         <br />
         <img src={`http://localhost:3000/jpg?match`} onClick={props.isMatchClickHandler}></img>
         <br />
-        <span> User 2 would also like to go to this restaurant </span>
+        <span> Your friend, &quot;user2&quot;, would also like to go to this restaurant! </span>
       </div>
     )
   } else {

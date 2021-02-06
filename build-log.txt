@@ -64,3 +64,5 @@ Attempted and Aborted getting 'friends code' to work.
 Rendered 'Match'
 
 Moved "setRestaurantDataToComponent" from Swiping to App so that OptionType will have access to it.
+
+Faked matching.  If restaurantId is even, the server will respond with 'match'.  Else, it will respond with 'nomatch'
