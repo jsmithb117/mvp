@@ -34,6 +34,7 @@ var Options = (props) => {
   var handleTypesSelectChange = (event) => {
     console.log(event.target.value);
     props.setTypeSelected(event.target.value);
+    props.setRestaurantDataToComponent();
   }
 
   var handleLocationsSelectChange = (event) => {

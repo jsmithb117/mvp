@@ -23,6 +23,24 @@ var App = () => {
   const [typeSelected, setTypeSelected] = useState('Burger');
   const [priceSelected, setPriceSelected] = useState(1);
   const [locationSelected, setLocationSelected] = useState(89523);
+  const [restaurantsToSwipe, setRestaurantsToSwipe] = useState([]);
+  const [nextRestaurant, setNextRestaurant] = useState(restaurantData[0]); //{id:1,type:'Burger'...}
+
+  var setRestaurantDataToComponent = () => {
+    if (user === 'user1') {
+      debugger;
+      var emptyArray = [];
+      setRestaurantsToSwipe(emptyArray);
+      restaurantData.forEach((restaurant) => {
+        // debugger;
+        if (typeSelected === restaurant.type) {
+          var temp = [...restaurantsToSwipe];
+          setRestaurantsToSwipe([...temp, restaurant]);
+        }
+      });
+      setNextRestaurant(restaurantsToSwipe[0]);
+    }
+  };
 
   useEffect(() => {
     console.log('fetching restaurantData');
@@ -75,10 +93,10 @@ var App = () => {
         <Navbar isLoggedIn={isLoggedIn} code={code} friendCode={friendCode}setFriendCode={setFriendCode} codeInput={codeInput} setCodeInput={setCodeInput} login={login} logout={logout} user={user} setUser={setUser} userInput={userInput} setUserInput={setUserInput} passwordInput={passwordInput} setPasswordInput={setPasswordInput}  />
       </div>
       <div className="options">
-        <Options restaurantData={restaurantData} isLoggedIn={isLoggedIn} types={types} setTypes={setTypes} typeSelected={typeSelected} setTypeSelected={setTypeSelected} locations={locations} setLocations={setLocations} locationSelected={locationSelected} setLocationSelected={setLocationSelected} prices={prices} setPrices={setPrices} priceSelected={priceSelected} setPriceSelected={setPriceSelected} />
+        <Options restaurantData={restaurantData} isLoggedIn={isLoggedIn} types={types} setTypes={setTypes} typeSelected={typeSelected} setTypeSelected={setTypeSelected} locations={locations} setLocations={setLocations} locationSelected={locationSelected} setLocationSelected={setLocationSelected} prices={prices} setPrices={setPrices} priceSelected={priceSelected} setPriceSelected={setPriceSelected} setRestaurantDataToComponent={setRestaurantDataToComponent} />
       </div>
       <div className="swiping">
-        <Swiping user={user} restaurantData={restaurantData} isLoggedIn={isLoggedIn} types={types} typeSelected={typeSelected} locations={locations} locationSelected={locationSelected} prices={prices} priceSelected={priceSelected} />
+        <Swiping user={user} restaurantData={restaurantData} isLoggedIn={isLoggedIn} types={types} typeSelected={typeSelected} locations={locations} locationSelected={locationSelected} prices={prices} priceSelected={priceSelected} setRestaurantDataToComponent={setRestaurantDataToComponent} restaurantsToSwipe={restaurantsToSwipe} setRestaurantsToSwipe={setRestaurantsToSwipe} nextRestaurant={nextRestaurant} setNextRestaurant ={setNextRestaurant}/>
       </div>
 
     </div>

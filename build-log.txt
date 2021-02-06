@@ -62,3 +62,5 @@ Aborted 'real' login.  ReadableStreams are a thorn in my side.
 Attempted and Aborted getting 'friends code' to work.
 
 Rendered 'Match'
+
+Moved "setRestaurantDataToComponent" from Swiping to App so that OptionType will have access to it.

@@ -6,27 +6,33 @@ import Buttons from './Buttons';
 // import PropTypes from 'prop-types';
 
 const Swiping = (props) => {
-  const [restaurantsToSwipe, setRestaurantsToSwipe] = useState([]);
-  var restaurantData = props.restaurantData;
-  const [nextRestaurant, setNextRestaurant] = useState(restaurantData[0]); //{id:1,type:'Burger'...}
+  // const [restaurantsToSwipe, setRestaurantsToSwipe] = useState([]);
+  var restaurantsToSwipe = props.restaurantsToSwipe;
+  var setRestaurantsToSwipe = props.setRestaurantsToSwipe;
+
+  // var restaurantData = props.restaurantData;
+  // const [nextRestaurant, setNextRestaurant] = useState(restaurantData[0]); //{id:1,type:'Burger'...}
+  var nextRestaurant = props.nextRestaurant;
+  var setNextRestaurant = props.setNextRestaurant;
+
   var typeSelected = props.typeSelected
   var locationSelected= props.locationSelected;
   var priceSelected= props.priceSelected;
   const [isMatch, setIsMatch] = useState(false);
-
-  var setRestaurantDataToComponent = () => {
-    if (props.user === 'user1') {
-      debugger;
-    }
-    setRestaurantsToSwipe([]);
-    restaurantData.forEach((restaurant) => {
-      // debugger;
-      if (typeSelected === restaurant.type) {
-        setRestaurantsToSwipe([...restaurantsToSwipe, restaurant]);
-      }
-    });
-    setNextRestaurant(restaurantsToSwipe[0]);
-  };
+  const setRestaurantDataToComponent = props.setRestaurantDataToComponent;
+  // var setRestaurantDataToComponent = () => {
+  //   if (props.user === 'user1') {
+  //     // debugger;
+  //   }
+  //   setRestaurantsToSwipe([]);
+  //   restaurantData.forEach((restaurant) => {
+  //     // debugger;
+  //     if (typeSelected === restaurant.type) {
+  //       setRestaurantsToSwipe([...restaurantsToSwipe, restaurant]);
+  //     }
+  //   });
+  //   setNextRestaurant(restaurantsToSwipe[0]);
+  // };
 
   useEffect(() => {
     console.log('using effect')
@@ -38,7 +44,7 @@ const Swiping = (props) => {
 
 
   var isMatchClickHandler = () => {
-    debugger;
+    // debugger;
     if (restaurantsToSwipe.length > 1) {
       var tempRestaurantsToSwipe = [...restaurantsToSwipe];
       tempRestaurantsToSwipe.shift();
