@@ -35,11 +35,11 @@ const Swiping = (props) => {
   // };
 
   useEffect(() => {
-    console.log('using effect')
+    // console.log('using effect')
     setRestaurantDataToComponent()
 
-    console.log('nextRestaurant');
-    console.log(nextRestaurant);
+    // console.log('nextRestaurant');
+    // console.log(nextRestaurant);
   }, [props.isLoggedIn, typeSelected, locationSelected, priceSelected])
 
 
@@ -53,23 +53,23 @@ const Swiping = (props) => {
       setNextRestaurant(restaurantsToSwipe[0]);
       setIsMatch(false);
     } else {
-      console.log('resetting restaurants for demo purposes');
+      // console.log('resetting restaurants for demo purposes');
       setRestaurantDataToComponent();
     }
 
   }
 
   if (nextRestaurant && props.isLoggedIn) {
-    console.log('rendering next Restaurant.  restaurantsToSwipe:');
-    console.log(restaurantsToSwipe);
-    console.log(typeof restaurantsToSwipe);
+    // console.log('rendering next Restaurant.  restaurantsToSwipe:');
+    // console.log(restaurantsToSwipe);
+    // console.log(typeof restaurantsToSwipe);
 
-    console.log('nextRestaurant');
+    // console.log('nextRestaurant');
 
-    console.log(nextRestaurant);
+    // console.log(nextRestaurant);
     return (
       <div>
-      <Image image={`${nextRestaurant.image}`} isMatch={isMatch} setIsMatch={setIsMatch} isMatchClickHandler={isMatchClickHandler} />
+      <Image image={`${nextRestaurant.image}`} isMatch={isMatch} setIsMatch={setIsMatch} isMatchClickHandler={isMatchClickHandler} nextRestaurant={nextRestaurant} />
       <div>
         <Buttons setNextRestaurant={setNextRestaurant} restaurantsToSwipe={restaurantsToSwipe} setRestaurantsToSwipe={setRestaurantsToSwipe} nextRestaurant={nextRestaurant} user={props.user}  setIsMatch={setIsMatch}/>
       </div>

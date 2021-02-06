@@ -76,6 +76,6 @@ values (9, "Lucky Beaver", "Burger", 89523, 1, 0000, 2400, 0000, 2400, 0000, 240
 insert into restaurants
 values (10, "La Cucina", "Italian", 89523, 1, 1100, 2100, 1100, 2100, 1100, 2100, 1100, 2100, 1100, 2100, 1100, 2100, 1100, 2100, "cuchina");
 insert into restaurants
-values (11, "Johnny's Ristorante Italiano", "Italian", 89523, 3, 2400, 0000, 1700, 2100, 1700, 2100, 1700, 2100, 1700, 2100, 1700, 2100, 1700, 2100, "beefy");
+values (11, "Johnny's Ristorante Italiano", "Italian", 89523, 2, 2400, 0000, 1700, 2100, 1700, 2100, 1700, 2100, 1700, 2100, 1700, 2100, 1700, 2100, "beefy");
 insert into restaurants
-values (12, "Mario's Portofino Ristorante", "Italian", 89523, 1, 1630, 2100, 1630, 2100, 1630, 2100, 1630, 2100, 1630, 2100, 1630, 2100, 1630, 2100, "lucky");
+values (12, "Mario's Portofino Ristorante", "Italian", 89523, 3, 1630, 2100, 1630, 2100, 1630, 2100, 1630, 2100, 1630, 2100, 1630, 2100, 1630, 2100, "lucky");

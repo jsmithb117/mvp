@@ -60,7 +60,7 @@ var Options = (props) => {
           })}
         </select>
 
-        <input type="submit" value="Submit"></input>
+        {/* <input type="submit" value="Submit"></input> */}
         <select value={props.locationSelected} onChange={handleLocationsSelectChange} className="option-location">
           {props.locations.map((location) => {
             return <OptionLocation location={location} key={location} />
@@ -77,7 +77,11 @@ var Options = (props) => {
     )
   } else {
     return (
-        <div className="options">Options logged out...</div>
+      <div className="options">
+        <span> Options </span>
+        <br />
+        <span> Logged out... </span>
+      </div>
     )
   }
 }

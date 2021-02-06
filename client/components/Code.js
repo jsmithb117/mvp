@@ -7,8 +7,8 @@ var Code = (props) => {
   }
   var codeSubmitHandler = (event) => {
     // debugger;
-    console.log('codeSubmitHandler')
-    console.log(event.target.value);
+    // console.log('codeSubmitHandler')
+    // console.log(event.target.value);
     // props.setFriendCode(props.codeInput);
   }
   if (props.code) {

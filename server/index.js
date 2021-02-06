@@ -88,31 +88,41 @@ app.post('/swipe', (req, res, next) => {
   console.log('post/swipe');
   console.log(req.body);
 
+//Faking the whole thing.  If restaurantId is an even number, it responds with a match
+  if (req.body.restaurantId % 2 === 0) {
+    res.send('match');
+  } else {
+    res.send('nomatch');
+  }
+
+
   connection.query(`select id from users where username = "${req.body.user}";`, (err, data) => {
     if(err) {
       console.error(err);
     }
-    console.log('data');
-    console.log(data);
+    // console.log('data');
+    // console.log(data);
 
     connection.query(`select * from matches where matches = ${req.body.restaurantId};`, (err, nextData) => {
-      console.log('nextData');
-      console.log(nextData);
+      // console.log('nextData');
+      // console.log(nextData);
 
-      // console.log('data[0].id');
-      // console.log(data[0].id);
+      // console.log('data[0]');
+      // console.log(data[0]);
       var user1IsTaken
       // = nextData ? !!nextData.user1 && nextDatauser1 !== data.id[0] : false;
 
-      if (nextData[0]) {
-        if (nextData[0].id !== null && nextData[0].id !== data[0].id) { //user1 is taken by another user //send match
-          user1IsTaken = true;
-        } else {
-          user1IsTaken = false;
-        }
-      } else {
-        user1IsTaken = true;
-      }
+      // if (nextData[0]) {
+        // if (nextData[0].id !== null && nextData[0].id !== data[0].id) { //user1 is taken by another user //send match
+        //   user1IsTaken = true;
+        // } else {
+        //   user1IsTaken = false;
+        // }
+      // } else {
+      //   user1IsTaken = true;
+      // }
+      // if (data[0].id)
+      // if (req.body.restaurantId === )
 
       //cases: (assumes 'user1')
       //user1 is taken by user1 //do nothing
@@ -121,26 +131,26 @@ app.post('/swipe', (req, res, next) => {
       //nextData is null //set to 1, send nomatch
 
 
-      console.log('user1IsTaken: ', user1IsTaken);
-      if (user1IsTaken) {
-        connection.query(`insert into matches (user1, matches) values (${data[0].id}, ${req.body.restaurantId});`, (err, thirdData) => {
-          if (err) {
-            console.error(err);
-          }
-          console.log('data[0].id');
-          console.log(data[0].id);
-          console.log('req.body.restaurantId');
-          console.log(req.body.restaurantId);
-          console.log('thirdData');
-          console.log(thirdData);
-          console.log('nomatch');
-          res.send('nomatch');
-        })
-      } else {
-        console.log('match');
-        res.send('match');
+      // console.log('user1IsTaken: ', user1IsTaken);
+      // if (user1IsTaken) {
+      //   connection.query(`insert into matches (user1, matches) values (${data[0].id}, ${req.body.restaurantId});`, (err, thirdData) => {
+      //     if (err) {
+      //       console.error(err);
+      //     }
+      //     console.log('data[0].id');
+      //     console.log(data[0].id);
+      //     console.log('req.body.restaurantId');
+      //     console.log(req.body.restaurantId);
+      //     console.log('thirdData');
+      //     console.log(thirdData);
+      //     console.log('nomatch');
+      //     res.send('nomatch');
+      //   })
+      // } else {
+      //   console.log('match');
+      //   res.send('match');
 
-      }
+      // }
     })
   })
 });

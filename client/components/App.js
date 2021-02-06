@@ -32,7 +32,7 @@ var App = () => {
   };
 
   useEffect(() => {
-    console.log('fetching restaurantData');
+    // console.log('fetching restaurantData');
       fetch(`${url}/restaurants`)
         .then((stream) => {
           if (!stream.ok) {
@@ -48,7 +48,7 @@ var App = () => {
         })
         .then((data) => {
           setRestaurantData(data);
-          console.log('fetched restaurantData');
+          // console.log('fetched restaurantData');
           // return data;
         })
         .catch((err) => {
@@ -63,11 +63,11 @@ var App = () => {
     setLogin(true);
     var newCode = createCode();
     setCode(newCode);
-    console.log('Not really logged in');
+    // console.log('Not really logged in');
   };
 
   var logout = () => {
-    console.log('Not really logged out');
+    // console.log('Not really logged out');
     setLogin(false);
   };
 
