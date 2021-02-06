@@ -20,7 +20,7 @@ var Login = (props) => {
   } else {
     return (
       <div className="login-false">
-        <form action="http://localhost:3000/login">
+        <form>
           <label>Login:
             <input placeholder="name" onChange={userChange}></input>
             <input placeholder="password" onChange={passwordChange}></input>
@@ -55,10 +55,10 @@ var Navbar = (props) => {
       <Login isLoggedIn={props.isLoggedIn} login={props.login} logout={props.logout} user={props.user} setUserInput={props.setUserInput} userInput={props.userInput} passwordInput={props.passwordInput} setPasswordInput={props.setPasswordInput}/>
       {/* </form> */}
     </div>
-    <div className="code"><Code code={props.code}/></div>
+    {/* <div className="code-main"><Code code={props.code} friendCode={props.friendCode}setFriendCode={props.setFriendCode} codeInput={props.codeInput} setCodeInput={props.setCodeInput}/></div>
     <div className="enter-code">
 
-    </div>
+    </div> */}
   </div>
 )}
 

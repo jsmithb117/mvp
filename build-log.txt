@@ -55,3 +55,10 @@ Renders OptionLocation now.
 Renders OptionPrice now.
 
 Worked on loggin in, code creation, and moving state around to facilitate those actions.
+
+Attempted 'real' login.
+Aborted 'real' login.  ReadableStreams are a thorn in my side.
+
+Attempted and Aborted getting 'friends code' to work.
+
+Rendered 'Match'
